@@ -1,7 +1,0 @@
-<----- 1st terminal------>
-riscv64-unknown-elf-gcc -o0 -ggdb -nostdlib -march=rv32i -mabi=ilp32 -wl,-Tm.ld m.s
-
-qemu-system-riscv32 -S -M virt -nographic -bios none -kernel m.elf -gdb tcp::1234
-
-<----- 2nd terminal------>
-gdb-multiarch m.elf -ex "target remote localhost:1234" -ex "break _start" -ex "continue" -q
